@@ -5,8 +5,19 @@
     --aside-background-color: #222222;
 }
 
+html,
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+
 body {
     background-color: var(--second-background-color)
+}
+
+img {
+    height: 100%;
 }
 
 .site-header {
@@ -15,11 +26,16 @@ body {
     align-content: center;
     background: var(--first-background-color);
     width: 100%;
-    height: 10vh;
-    padding: 2vh 6vw;
+    height: 15vh;
+    padding: 1.5vh 6vw;
     border-bottom-color: rgba(0, 0, 0, 0.5);
     border-bottom-width: 2px;
     border-bottom-style: solid;
+}
+
+.site-header figure {
+    height: 100%;
+    margin: 0px;
 }
 
 .site-menu-item {
