@@ -31,11 +31,10 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
-     {% include 'header.html' %}
+        {% include 'header.html' %}
         {% wagtailuserbar %}
-
         {% block content %}{% endblock %}
-
+        {% include 'footer.html' %}
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/website.js' %}"></script>
 
