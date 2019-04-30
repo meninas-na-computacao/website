@@ -34,15 +34,9 @@
 <body class="{% block body_class %}{% endblock %}">
     {% include 'header.html' %}
     {% wagtailuserbar %}
-    <div class="row">
-        <div class="sixteen wide column">
-            <figure class="page-header">
-                <header>{{ page.title }}</header>
-            </figure>
-        </div>
-    </div>
+
     <main class="row">
-        <article class="ten wide column" style="min-height: 74vh;">
+        <article class="column" style="min-height: 74vh;">
             {% block content %}{% endblock %}
         </article>
     </main>
