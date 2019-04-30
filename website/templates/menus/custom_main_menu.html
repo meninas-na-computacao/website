@@ -1,0 +1,7 @@
+<ul class="site-menu">
+{% for item in menu_items  %}
+    <li class="site-menu-item">
+        <a href="{{item.href}}">{{ item.text }}</a>
+    </li>
+{% endfor %}
+</ul>
