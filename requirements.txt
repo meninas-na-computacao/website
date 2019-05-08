@@ -4,6 +4,7 @@ beautifulsoup4==4.6.0
 certifi==2019.3.9
 chardet==3.0.4
 Django==2.1.8
+django-cogwheels==0.2
 django-modelcluster==4.4
 django-taggit==0.23.0
 django-treebeard==4.3
@@ -26,6 +27,7 @@ Unidecode==1.0.23
 urllib3==1.24.2
 wagtail==2.4
 wagtail-blog==2.1.0
+wagtailmenus==2.13
 webencodings==0.5.1
 Willow==1.1
 wrapt==1.11.1
