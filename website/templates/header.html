@@ -12,15 +12,9 @@
                     <img src="{% static 'images/logo.jpg' %}" alt="">
                 </a>
             </figure>
-            <ul class="site-menu">
-                <li class="site-menu-item">
-                    <a href="#">Projeto</a>
-                </li>
-                <li class="site-menu-item"><a href="#">Eventos</a></li>
-                <li class="site-menu-item"><a href="#">Galeria</a></li>
-                <li class="site-menu-item"><a href="#">Contato</a></li>
-            </ul>
+            <nav>
+                {% main_menu use_specific=USE_SPECIFIC_TOP_LEVEL template="menus/custom_main_menu.html" sub_menu_template="menus/custom_sub_menu.html" %}
+            </nav>
         </header>
-        {% main_menu max_levels=3 use_specific=USE_SPECIFIC_TOP_LEVEL template="menus/custom_main_menu.html" sub_menu_template="menus/custom_sub_menu.html" %}
     </div>
 </div>

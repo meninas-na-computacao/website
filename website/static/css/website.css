@@ -3,6 +3,9 @@
     --first-background-color: rgb(255, 255, 255);
     --second-background-color: rgb(245, 250, 253);
     --aside-background-color: #222222;
+    --font-color: #8E9DAE;
+    --border-color: rgba(0, 0, 0, .11);
+    --shadow-color: rgba(0, 0, 0, .11);
 }
 
 html,
@@ -40,6 +43,7 @@ img {
     margin: 1vw 1vw;
     text-transform: uppercase;
     font-weight: bold;
+    position: relative;
 }
 
 .site-menu-item::after {
@@ -62,6 +66,39 @@ img {
 
 .site-menu-item a:hover {
     color: var(--accent-color)
+}
+
+
+.site-menu-item .submenu {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding-left: 0%;
+    margin-top: 2.5em;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+    background-color: var(--first-background-color);
+    box-shadow: 1px 1px 4px 2px var(--shadow-color);
+}
+
+.site-menu-item:hover .submenu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.site-menu-item:hover .submenu .site-menu-item {
+    margin: 0;
+    padding: 0.5vw 1vw;
+}
+
+.site-menu-item:hover .submenu .site-menu-item:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.site-menu-item:hover .submenu .site-menu-item::after {
+    content: "";
+    border: none;
 }
 
 .site-info-media {
@@ -101,4 +138,10 @@ img {
 .page-header header {
     color: #FFFFFF;
     font-size: 36pt
+}
+
+.site-content {
+    padding-top: 6em;
+    font-size: 16px;
+    color: var(--font-color);
 }

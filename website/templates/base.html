@@ -31,7 +31,7 @@
     {% endblock %}
 </head>
 
-<body class="{% block body_class %}{% endblock %}">
+<body class="{% block body_class %}{% endblock %}ui grid">
     {% include 'header.html' %}
     {% wagtailuserbar %}
     <div class="row">
@@ -42,7 +42,7 @@
         </div>
     </div>
     <main class="row">
-        <article class="ten wide column" style="min-height: 74vh;">
+        <article class="eight wide column site-content" style="min-height: 74vh;">
             {% block content %}{% endblock %}
         </article>
     </main>

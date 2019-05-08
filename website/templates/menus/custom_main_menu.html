@@ -1,7 +1,14 @@
+{% load menu_tags %}
+
 <ul class="site-menu">
-{% for item in menu_items  %}
-    <li class="site-menu-item">
+    {% for item in menu_items  %}
+    <li class="site-menu-item {{ item.active_class }}">
+        {% if item.has_children_in_menu %}
+        <a href="{{item.href}}">{{ item.text }} <i class="caret down icon"></i></a>
+        {% sub_menu item %}
+        {% else %}
         <a href="{{item.href}}">{{ item.text }}</a>
+        {% endif %}
     </li>
-{% endfor %}
+    {% endfor %}
 </ul>
