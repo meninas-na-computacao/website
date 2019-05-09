@@ -31,17 +31,12 @@
     {% endblock %}
 </head>
 
-<body class="{% block body_class %}{% endblock %}ui grid">
+<body class="{% block body_class %}{% endblock %}">
     {% include 'header.html' %}
-    {% wagtailuserbar %}
-    <div class="row">
-        <div class="sixteen wide column">
-            <figure class="page-header">
-                <header>{{ page.title }}</header>
-            </figure>
-        </div>
-    </div>
-    <main class="row">
+    <figure class="page-header">
+        <header>{{ page.title }}</header>
+    </figure>
+    <main class="ui centered grid" style="margin-top: 0em;">
         <article class="eight wide column site-content" style="min-height: 74vh;">
             {% block content %}{% endblock %}
         </article>
@@ -53,6 +48,7 @@
     {% block extra_js %}
     {# Override this in templates to add extra javascript #}
     {% endblock %}
+    {% wagtailuserbar %}
 </body>
 
 </html>

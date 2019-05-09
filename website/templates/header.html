@@ -1,20 +1,22 @@
 {% load static %}
 {% load menu_tags %}
-<div class="row">
-    <div class="sixteen wide column">
-        <aside class="site-info-media">
+<div>
+    <aside class="site-info-media">
+        <a href="https://www.facebook.com/meninas.comp/">
             <i class="facebook icon"></i>
+        </a>
+        <a href="https://github.com/meninas-na-computacao">
             <i class="github icon"></i>
-        </aside>
-        <header class="site-header">
-            <figure class="site-logo">
-                <a href="/">
-                    <img src="{% static 'images/logo.jpg' %}" alt="">
-                </a>
-            </figure>
-            <nav>
-                {% main_menu use_specific=USE_SPECIFIC_TOP_LEVEL template="menus/custom_main_menu.html" sub_menu_template="menus/custom_sub_menu.html" %}
-            </nav>
-        </header>
-    </div>
+        </a>
+    </aside>
+    <header class="site-header">
+        <figure class="site-logo">
+            <a href="/">
+                <img src="{% static 'images/logo.jpg' %}" alt="">
+            </a>
+        </figure>
+        <nav>
+            {% main_menu use_specific=USE_SPECIFIC_TOP_LEVEL template="menus/custom_main_menu.html" sub_menu_template="menus/custom_sub_menu.html" %}
+        </nav>
+    </header>
 </div>
