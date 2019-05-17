@@ -1,0 +1,121 @@
+{% load static i18n wagtailcore_tags wagtailimages_tags wagtailroutablepage_tags wagtailuserbar puput_tags %}
+{% load static wagtailuserbar %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <title>
+        {% block title %}
+        {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+        {% endblock %}
+        {% block title_suffix %}
+        {% with self.get_site.site_name as site_name %}
+        {% if site_name %}- {{ site_name }}{% endif %}
+        {% endwith %}
+        {% endblock %}
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="title" content="{% block meta_title %}
+                        {% if blog_page.seo_title %}
+                            {{ blog_page.seo_title }}
+                        {% else %}
+                            {{ blog_page.title }}
+                        {% endif %}
+                   {% endblock meta_title %}" />
+    <meta name="description" content="{% block meta_description %}
+                        {{ blog_page.search_description }}
+                   {% endblock meta_description %}" />
+    {% block social_share %}{% endblock social_share %}
+    <link rel="canonical" href="{% block canonical %}{% canonical_url %}{% endblock canonical %}" />
+
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <link
+        href='//fonts.googleapis.com/css?family=Roboto:400,300,300italic,100italic,100,400italic,500,500italic,700,900,700italic,900italic'
+        rel='stylesheet' type='text/css'>
+    {% block css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    {# Global stylesheets #}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/website.css' %}">
+    <link rel="stylesheet" href="{% static 'puput/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'puput/css/puput.css' %}" />
+    {% endblock %}
+</head>
+
+<body>
+    {% include 'header.html' %}
+    {% block blog_header %}
+    <figure class="page-header">
+        <header>{{ page.title }}</header>
+    </figure>
+    {% endblock blog_header %}
+    <main class="ui centered grid" style="margin-top: 0em;">
+        <div class="row">
+            <div class="eight wide column">
+                {% block content %}{% endblock content %}
+                {% block extra_content %}{% endblock extra_content %}
+            </div>
+
+            <div class="three wide column">
+                <div class="blog_sidebar">
+                    <div class="rss-sitemap">
+                        <a href="{% feeds_url blog_page %}" target="_blank" title="RSS">
+                            <i class="fa fa-rss-square"></i> <span>{% trans 'Feed RSS' %}</span>
+                        </a>
+                    </div>
+                    <form name="search_form" class="search_form" method="get"
+                        action="{% routablepageurl blog_page 'entries_search' %}">
+                        <div class="input-group">
+                            <input type="search" name="q" placeholder="{% trans 'Search' %}">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+
+                    {% if blog_page.display_last_entries %}
+                    <ul class="sidebar">
+                        <h4>{% trans 'Last Entries' %}</h4>
+                        {% recent_entries blog_page.num_last_entries %}
+                    </ul>
+                    {% endif %}
+                    {% if blog_page.display_popular_entries %}
+                    <ul class="sidebar">
+                        <h4>{% trans 'Popular Entries' %}</h4>
+                        {% popular_entries blog_page.num_popular_entries %}
+                    </ul>
+                    {% endif %}
+                    {% if blog_page.display_categories %}
+                    <ul class="sidebar">
+                        <h4>{% trans 'Categories' %}</h4>
+                        {% categories_list %}
+                    </ul>
+                    {% endif %}
+                    {% if blog_page.display_tags %}
+                    <ul class="sidebar">
+                        <h4>{% trans 'Tags' %}</h4>
+                        {% tags_list %}
+                    </ul>
+                    {% endif %}
+                    {% if blog_page.display_archive %}
+                    <ul class="sidebar widget menu">
+                        <h4>{% trans 'Archive' %}</h4>
+                        {% archives_list %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include 'footer.html' %}
+    {% block js %}
+    <script src="{% static 'puput/js/jquery.min.js' %}"></script>
+    <script src="{% static 'puput/js/puput.js' %}"></script>
+    {% endblock js %}
+</body>
+
+</html>

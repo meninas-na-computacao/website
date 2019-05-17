@@ -40,7 +40,12 @@ INSTALLED_APPS = [
     'wagtail.core',
     'wagtail.contrib.modeladmin',  # Don't repeat if it's there already
 
-    'blog',
+    'wagtail.contrib.sitemaps',
+    'wagtail.contrib.routable_page',
+    'django_social_share',
+    'puput',
+    'colorful',
+
     'wagtailmenus',
 
     'modelcluster',
@@ -166,3 +171,6 @@ WAGTAIL_SITE_NAME = "website"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+# Puput settings
+PUPUT_AS_PLUGIN = True
