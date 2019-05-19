@@ -168,3 +168,7 @@ img {
     font-size: 16px;
     color: var(--font-color);
 }
+
+img#ame {
+    width: 100%;
+}

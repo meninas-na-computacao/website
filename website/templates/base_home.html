@@ -36,8 +36,11 @@
     {% wagtailuserbar %}
 
     <main class="ui centered grid" style="margin-top: 0em;">
-        <article class="eight wide column" style="min-height: 74vh;">
+        <article class="nine wide column" style="min-height: 88vh;">
             {% block content %}{% endblock %}
+        </article>
+        <article class="seven wide column" style="min-height: 88vh;">
+            <img id="ame" src="{% static 'images/AME_V2.png' %}" alt="">
         </article>
     </main>
     {% include 'footer.html' %}
