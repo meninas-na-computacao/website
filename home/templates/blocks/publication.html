@@ -1,0 +1,17 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+<div class="ui items">
+    <div class="item">
+        <div class="image">
+            <img src="http://www.myiconfinder.com/uploads/iconsets/256-256-003ea7262e1af37558f37d061e90e4a8.png">
+        </div>
+        <div class="content">
+            <a class="header" href="{% include_block value.link %}" target="_blank">{% include_block value.title %}</a>
+            <div class="meta">
+                <span>{% include_block value.place %}</span>
+            </div>
+            <div class="description">
+                {% include_block value.author %}
+            </div>
+        </div>
+    </div>
+</div>

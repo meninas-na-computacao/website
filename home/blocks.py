@@ -16,9 +16,10 @@ class PublicationBlock(blocks.StructBlock):
     title = blocks.TextBlock()
     author = blocks.TextBlock()
     place = blocks.TextBlock()
+    link = blocks.TextBlock()
 
     class Meta:
-        template = 'blocks/person.html'
+        template = 'blocks/publication.html'
 
 
 class ImageSquareBlock(blocks.StructBlock):
