@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'wagtail.core',
     'wagtail.contrib.modeladmin',  # Don't repeat if it's there already
 
+    'wagtail.contrib.table_block',
+
     'wagtail.contrib.sitemaps',
     'wagtail.contrib.routable_page',
     'django_social_share',
