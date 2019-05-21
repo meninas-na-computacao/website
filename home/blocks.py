@@ -3,9 +3,9 @@ from wagtail.core.fields import StreamField
 from wagtail.images.blocks import ImageChooserBlock
 
 
-class PersonBlock(blocks.StreamBlock):
+class PersonBlock(blocks.StructBlock):
+    name = name = blocks.TextBlock()
     image = ImageChooserBlock()
-    name = blocks.TextBlock()
 
     class Meta:
-        template = 'home/blocks/person.html'
+        template = 'blocks/person.html'

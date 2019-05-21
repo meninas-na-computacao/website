@@ -1,0 +1,33 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="person-block">
+    <figure>
+        {% image value.image fill-80x80 class="person-image" %}
+    </figure>
+    <div class="person-info">
+        <span>{% include_block value.name %}</span>
+    </div>
+</div>
+<style>
+    .person-block {
+        height: 10vw;
+        width: 100%;
+    }
+
+    .person-block figure {
+        display: inline-block;
+        height: 100%;
+        width: 40%;
+        margin: 0%
+    }
+
+    .person-block .person-info {
+        display: inline-block;
+        height: 100%;
+        width: 50%;
+    }
+
+    .person-image {
+        height: 100%;
+    }
+</style>
