@@ -5,6 +5,18 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-{{ page.body|richtext }}
+<div class="home-text">
+    {{ page.body|richtext }}
+</div>
 
+<style type="text/css">
+    .home-text {
+        height: 40vh;
+        width: 50%;
+        margin: 0 auto;
+        background-color: #FFF;
+        border-radius: 1em;
+        padding: 1em;
+    }
+</style>
 {% endblock %}

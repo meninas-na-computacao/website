@@ -4,7 +4,7 @@ from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel,  StreamFieldPanel
 from wagtail.core.fields import StreamField
-from blocks import PersonBlock
+from home.blocks import PersonBlock
 
 
 class HomePage(Page):
