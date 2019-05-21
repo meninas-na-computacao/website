@@ -4,8 +4,9 @@ from wagtail.images.blocks import ImageChooserBlock
 
 
 class PersonBlock(blocks.StructBlock):
-    name = name = blocks.TextBlock()
+    name = blocks.TextBlock()
     image = ImageChooserBlock()
+    description = blocks.RichTextBlock()
 
     class Meta:
         template = 'blocks/person.html'
