@@ -1,15 +1,74 @@
 {% extends "base_home.html" %}
 
-{% load wagtailcore_tags %}
+{% load static wagtailcore_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-<div class="home-text">
-    {{ page.body|richtext }}
+<div class="landing-block" id="landing-block-1">
+    <article class="container">
+        <div class="columns">
+            <section class="column col-5 col-ml-auto">
+                <div class="text">
+                    <header>Meninas.Comp</header>
+                    <p>Projeto idealizado por professoras do Departamento de Ciência da Computação
+                        da Universidade de Brasília que fomenta inclusão de meninas de escolas
+                        públicas do Distrito Federal através de projetos que estimulam esse público
+                        a ingressar em cursos que possuem um público majoritariamente masculino.</p>
+                </div>
+                <aside class="sponsors">
+                    <img src="{% static 'images/meninaslogocolorido2018chancelado.png' %}">
+                    <img src="{% static 'images/unb_logo.svg' %}">
+                </aside>
+            </section>
+            <section class="column col-5 col-mr-auto" style="height: 84vh;  overflow: hidden;">
+                <img id="ame" src="{% static 'images/AME_V2.png' %}" style="height: 180%;" alt="">
+            </section>
+        </div>
+    </article>
+
 </div>
 
 <style type="text/css">
+    .landing-block {
+        height: 84vh;
+        width: 100%;
+    }
+
+    #landing-block-1 {
+        background: linear-gradient(135deg, rgba(234, 203, 102, 0.8) 0%, rgba(238, 18, 164, 0.8) 100%);
+    }
+
+    #landing-block-1 .text {
+        width: 90%;
+        height: 70%;
+        padding-top: 25vh;
+        color: #FFF
+    }
+
+    #landing-block-1 .sponsors {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        height: 15%;
+        margin-bottom: 10%;
+        background-color: #FFFFFF;
+        padding: 2em;
+        border-radius: 1em;
+    }
+
+    #landing-block-1 .text header {
+        display: inline-block;
+        margin-block-end: 1em;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 4em;
+    }
+
+    #landing-block-1 .text p {
+        text-align: justify;
+    }
+
     .home-text {
         height: 40vh;
         width: 50%;
