@@ -8,6 +8,7 @@ from home.blocks import PersonBlock
 
 
 class HomePage(Page):
+    # name = models.TextField(blank=True)
     body = RichTextField(blank=True)
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
