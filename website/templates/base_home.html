@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 
 
     {# Global stylesheets #}
@@ -34,15 +37,7 @@
 <body class="{% block body_class %}{% endblock %}">
     {% include 'header.html' %}
     {% wagtailuserbar %}
-
-    <main class="ui centered grid" style="margin-top: 0em;">
-        <article class="nine wide column" style="min-height: 88vh;">
-            {% block content %}{% endblock %}
-        </article>
-        <article class="seven wide column" style="min-height: 88vh;">
-            <img id="ame" src="{% static 'images/AME_V2.png' %}" alt="">
-        </article>
-    </main>
+    {% block content %}{% endblock %}
     {% include 'footer.html' %}
     {# Global javascript #}
     <script type="text/javascript" src="{% static 'js/website.js' %}"></script>
