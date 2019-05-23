@@ -5,7 +5,10 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-{{ page.body|richtext }}
-{{ page.extra }}
+
+<section class="column col-6 col-ml-auto col-mr-auto">
+    {{ page.body|richtext }}
+    {{ page.extra }}
+</section>
 
 {% endblock %}

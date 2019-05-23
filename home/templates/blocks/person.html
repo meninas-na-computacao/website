@@ -1,19 +1,19 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 <div class="card">
-    <div class="image">
-        {% image value.image width-400 class="right floated mini ui image" %}
+    <div class="card-image">
+        {% image value.image width-400 class="img-responsive" %}
     </div>
-    <div class="content">
-        <div class="header">{% include_block value.name %}</div>
-        <div class="meta">
+    <div class="card-header">
+        <div class="card-title h5">{% include_block value.name %}</div>
+        <div class="card-subtitle text-gray">
             {% include_block value.ocupation %}
         </div>
-        <div class="description">
+        <div class="card-body">
             {% include_block value.description %}
         </div>
     </div>
     {% if value.extra %}
-    <div class="extra content">
+    <div class="card-footer">
         {{ value.extra|richtext }}
     </div>
     {% endif %}

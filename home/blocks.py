@@ -37,13 +37,13 @@ class ImageSquareBlock(blocks.StructBlock):
 class PersonListBlock(blocks.ListBlock):
     def render_basic(self, value, context=None):
         children = format_html_join(
-            '\n', '{0}',
+            '\n', '<div class=\"column col-6 col-xs-12\">{0}</div>',
             [
                 (self.child_block.render(child_value, context=context),)
                 for child_value in value
             ]
         )
-        return format_html("<div class=\"ui link cards\">{0}</div>", children)
+        return format_html("<div class=\"columns\">{0}</div>", children)
 
 
 class PublicationListBlock(blocks.ListBlock):
