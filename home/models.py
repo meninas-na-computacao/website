@@ -29,6 +29,7 @@ class SitePageRich(Page):
     extra = StreamField([
         ('person', blocks.PersonListBlock(blocks.PersonBlock())),
         ('publication',  blocks.PublicationListBlock(blocks.PublicationBlock())),
+        ('image_square',   wg_blocks.ListBlock(blocks.ImageSquareBlock())),
         ('table', TableBlock(table_options=table_opt.TABLE_OPTIONS)),
         ('rich', wg_blocks.RichTextBlock())
     ])

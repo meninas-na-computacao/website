@@ -1,58 +1,54 @@
 {% load wagtailcore_tags wagtailimages_tags %}
-<div class="ui link cards">
-    <div class="card">
-        <div class="image">
-            {% image value.image width-400 class="right floated mini ui image" %}
-            <!-- <img src="/images/avatar2/large/matthew.png"> -->
-        </div>
-        <div class="content">
-            <div class="header">{% include_block value.name %}</div>
-            <div class="meta">
-                <a>Friends</a>
-            </div>
-            <div class="description">
-                {{ value.description|richtext }}
-            </div>
-        </div>
-        <div class="extra content">
-        </div>
+<div class="image-block">
+    {% image value.image width-400 class="image-block-background" %}
+    <div class="image-block-content">
+        <header> {% include_block value.text %}</header>
+        <p> {% include_block value.description %}</p>
     </div>
-
 </div>
 
 
 
 <style>
-    .person-block {
-        display: flex;
-        height: 10vw;
+    .image-block {
+        position: relative;
+        height: 20vw;
+        width: 20vw;
+        background: linear-gradient(135deg, rgba(234, 203, 102, 0.8) 0%, rgba(238, 18, 164, 0.8) 100%);
+    }
+
+    .image-block img.image-block-background {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        z-index: 0;
+        opacity: .3;
+        height: 100%;
         width: 100%;
-        background: #ECEEEE;
-        border-radius: 1em;
-        margin: 1em;
+        filter: grayscale(1);
     }
 
-    .person-block figure {
-
-        display: inline-block;
-        width: auto;
-        margin: 0%;
-    }
-
-    .person-block figure img {
-        border-top-left-radius: 1em;
-        border-bottom-left-radius: 1em;
-    }
-
-    .person-block .person-info {
+    .image-block .image-block-content {
+        position: absolute;
         display: flex;
         flex-direction: column;
+        justify-content: flex-end;
+        top: 0%;
+        left: 0%;
+        z-index: 1;
         height: 100%;
-        width: auto;
+        width: 100%;
         padding: 1em;
+        background: linear-gradient(180deg, rgba(234, 203, 102, 0.1) 40%, rgba(255, 255, 255, 1) 100%);
     }
 
-    .person-image {
-        height: 100%;
+    .image-block .image-block-content header {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1em;
+    }
+
+    .image-block .image-block-content p {
+        font-size: 0.8em;
     }
 </style>

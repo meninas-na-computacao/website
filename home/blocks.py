@@ -31,7 +31,7 @@ class ImageSquareBlock(blocks.StructBlock):
     description = blocks.TextBlock()
 
     class Meta:
-        template = 'blocks/person.html'
+        template = 'blocks/image_square.html'
 
 
 class PersonListBlock(blocks.ListBlock):
