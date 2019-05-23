@@ -5,6 +5,7 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-{{ page.body }}
+{{ page.body|richtext }}
+{{ page.extra }}
 
 {% endblock %}

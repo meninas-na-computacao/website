@@ -1,23 +1,22 @@
 {% load wagtailcore_tags wagtailimages_tags %}
-<div class="ui link cards">
-    <div class="card">
-        <div class="image">
-            {% image value.image width-400 class="right floated mini ui image" %}
-            <!-- <img src="/images/avatar2/large/matthew.png"> -->
+<div class="card">
+    <div class="image">
+        {% image value.image width-400 class="right floated mini ui image" %}
+    </div>
+    <div class="content">
+        <div class="header">{% include_block value.name %}</div>
+        <div class="meta">
+            {% include_block value.ocupation %}
         </div>
-        <div class="content">
-            <div class="header">{% include_block value.name %}</div>
-            <div class="meta">
-                <a>Friends</a>
-            </div>
-            <div class="description">
-                {{ value.description|richtext }}
-            </div>
-        </div>
-        <div class="extra content">
+        <div class="description">
+            {% include_block value.description %}
         </div>
     </div>
-
+    {% if value.extra %}
+    <div class="extra content">
+        {{ value.extra|richtext }}
+    </div>
+    {% endif %}
 </div>
 
 
