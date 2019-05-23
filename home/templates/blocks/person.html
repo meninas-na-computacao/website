@@ -1,0 +1,57 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+<div class="card">
+    <div class="image">
+        {% image value.image width-400 class="right floated mini ui image" %}
+    </div>
+    <div class="content">
+        <div class="header">{% include_block value.name %}</div>
+        <div class="meta">
+            {% include_block value.ocupation %}
+        </div>
+        <div class="description">
+            {% include_block value.description %}
+        </div>
+    </div>
+    {% if value.extra %}
+    <div class="extra content">
+        {{ value.extra|richtext }}
+    </div>
+    {% endif %}
+</div>
+
+
+
+<style>
+    .person-block {
+        display: flex;
+        height: 10vw;
+        width: 100%;
+        background: #ECEEEE;
+        border-radius: 1em;
+        margin: 1em;
+    }
+
+    .person-block figure {
+
+        display: inline-block;
+        width: auto;
+        margin: 0%;
+    }
+
+    .person-block figure img {
+        border-top-left-radius: 1em;
+        border-bottom-left-radius: 1em;
+    }
+
+    .person-block .person-info {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: auto;
+        padding: 1em;
+    }
+
+    .person-image {
+        height: 100%;
+    }
+</style>

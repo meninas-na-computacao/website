@@ -1,10 +1,11 @@
 from django.db import models
 
+from wagtail.core import blocks as wg_blocks
 from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
+from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import FieldPanel,  StreamFieldPanel
-from wagtail.core.fields import StreamField
-from blocks import PersonBlock
+from wagtail.contrib.table_block.blocks import TableBlock
+from home import blocks, table_opt
 
 
 class HomePage(Page):
@@ -22,9 +23,14 @@ class SitePage(Page):
 
 
 class SitePageRich(Page):
-    body = StreamField([
-        ('person', PersonBlock())
+    body = RichTextField(blank=True)
+    extra = StreamField([
+        ('person', blocks.PersonListBlock(blocks.PersonBlock())),
+        ('publication',  blocks.PublicationListBlock(blocks.PublicationBlock())),
+        ('table', TableBlock(table_options=table_opt.TABLE_OPTIONS)),
+        ('rich', wg_blocks.RichTextBlock())
     ])
     content_panels = Page.content_panels + [
-        StreamFieldPanel('body')
+        FieldPanel('body', classname="full"),
+        StreamFieldPanel('extra', classname="full")
     ]
