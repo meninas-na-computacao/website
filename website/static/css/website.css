@@ -1,7 +1,7 @@
 :root {
     --accent-color: #DD3E78;
     --first-background-color: rgb(255, 255, 255);
-    --second-background-color: rgb(245, 250, 253);
+    --second-background-color: #F9FAF9;
     --aside-background-color: #222222;
     --font-color: #222222;
     --border-color: rgba(0, 0, 0, .11);
@@ -165,8 +165,14 @@ img {
 }
 
 .site-content {
-    font-size: 16px;
+    font-size: 12pt;
     color: var(--font-color);
+}
+
+.site-content .rich-text {
+    font-size: 14pt;
+    margin-bottom: 1.5em;
+    text-align: justify;
 }
 
 img#ame {
